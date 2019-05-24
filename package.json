@@ -1,0 +1,15 @@
+{
+  "name": "tiktokbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.18.11",
+    "tiktok-api": "^0.4.0"
+  }
+}
