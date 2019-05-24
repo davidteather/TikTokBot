@@ -1,8 +1,0 @@
-{
-  "data": {
-    "captcha": "",
-    "description": "Wrong password",
-    "error_code": 1009
-  },
-  "message": "error"
-}
