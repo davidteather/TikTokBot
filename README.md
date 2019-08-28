@@ -2,6 +2,8 @@
 
 This project downloads the trending tiktok videos and compiles them into a video.
 
+**NOTE** This project will most likely be behind my TikTok-API. Adapt that to use FFMpeg if you want a better experience (TikTok-API)[https://github.com/davidteather/TikTok-Api]. I will still update this just it will most likely be a few updates behind that other repo.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.
