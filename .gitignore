@@ -1,6 +1,2 @@
 .idea/*
-browsermob-proxy/*
 output/output.mp4
-bmp.log
-geckodriver.log
-server.log

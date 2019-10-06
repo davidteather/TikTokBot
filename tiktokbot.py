@@ -7,7 +7,7 @@ import urllib.request
 import glob
 import os
 import mimetypes
-from TikTokApi import TikTokapi
+
 
 def clearTMP(delpath):
     r = glob.glob(delpath)
@@ -23,27 +23,41 @@ def sig_generator(stringLength=26):
     letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
     return ''.join(random.choice(letters) for i in range(stringLength))
 
-open("downloaded/concat.txt", 'w+')
 
 # Vars
 count = 42
-api = TikTokapi("browsermob-proxy/bin/browsermob-proxy", headless=True)
-data = api.trending(count)
+val = True
+while val is True:
+    url = "https://m.tiktok.com/share/item/list?id=&type=5&count=" + \
+        str(count) + "&minCursor=0&maxCursor=0&_signature=" + "W5cHbxAVBvNS2316KIvp21uXB3"
+    r = requests.get(url, headers={"authority": "m.tiktok.com", "method": "GET", "path": url.split("https://m.tiktok.com")[0], "scheme": "https", "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+                                   "accept-encoding": "gzip, deflate, br", "accept-language": "en-US,en;q=0.9", "cache-control": "max-age=0", "upgrade-insecure-requests": "1",
+                                   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"})
 
-prevloops = 0
-for video in data:
-    r = requests.get(video['itemInfos']["video"]["urls"][0], allow_redirects=False)
-    content_type = r.headers['content-type']
-    extension = mimetypes.guess_extension(content_type)
+    data = r.json()
+    i = count - 2
+    prevloops = 0
+    while (i >= 0):
+        try:
+            r = requests.get(data["body"]["itemListData"][prevloops]
+                             ["itemInfos"]["video"]["urls"][0], allow_redirects=False)
+            content_type = r.headers['content-type']
+            extension = mimetypes.guess_extension(content_type)
+            open('downloaded/' + str(prevloops) +
+                 extension, "wb").write(r.content)
+            open("downloaded/concat.txt", 'a').write("file " +
+                                                     str(prevloops) + ".mkv" + "\n")
+            os.system("ffmpeg -loglevel panic -i downloaded/" + str(prevloops) +
+                      extension + " -c copy -map 0 downloaded/" + str(prevloops) + ".mkv")
+            prevloops += 1
+            i -= 1
+        except:
+            print('Session Expired?')
+            prevloops += 1
+            i = -10
 
-    open('downloaded/' + str(prevloops) + extension, "w+")
-    
-
-    open('downloaded/' + str(prevloops) + extension, "wb").write(r.content)
-    open("downloaded/concat.txt", 'a').write("file " + str(prevloops) + ".mkv" + "\n")
-    os.system("ffmpeg -loglevel panic -i downloaded/" + str(prevloops) +
-                extension + " -c copy -map 0 downloaded/" + str(prevloops) + ".mkv")
-    prevloops += 1
+    if i == -1:
+        val = False
 
 # concat errors
 # ffmpeg -f concat -i downloaded/concat.txt -safe 1 -r 30 -fflags +genpts -c:a copy output.mp4
