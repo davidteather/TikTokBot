@@ -13,10 +13,13 @@ These instructions will get you a copy of the project up and running on your loc
 You need to have ffmpeg installed and in your path variable, tutorial (here)[https://www.thewindowsclub.com/how-to-install-ffmpeg-on-windows-10].
 Also, make sure you have in the directory of tiktokbot.py folders called output and downloaded.
 
+You will also have to follow the instructions [here](https://github.com/davidteather/TikTok-Api) for installing the unofficial tiktok-api
+
 Python Requirements
 ```
 pip install requests
 pip install mimetypes
+pip install TikTokApi
 ```
 
 ### Running the bot
