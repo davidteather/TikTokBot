@@ -18,7 +18,6 @@ You will also have to follow the instructions [here](https://github.com/davidtea
 Python Requirements
 ```
 pip install requests
-pip install mimetypes
 pip install TikTokApi
 ```
 
