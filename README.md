@@ -2,6 +2,9 @@
 
 This project downloads the trending tiktok videos and compiles them into a video.
 
+**Note** follow the installation instructions for the used api [TikTok-API](https://github.com/davidteather/TikTok-Api).
+
+
 **NOTE** This project will most likely be behind my TikTok-API. Adapt that to use FFMpeg if you want a better experience [TikTok-API](https://github.com/davidteather/TikTok-Api). I will still update this just it will most likely be a few updates behind that other repo.
 
 ## Getting Started
@@ -19,6 +22,11 @@ Python Requirements
 ```
 pip install requests
 pip install TikTokApi
+```
+
+or you can do
+```
+pip install -r requirements.txt
 ```
 
 ### Running the bot
