@@ -2,8 +2,6 @@
 
 This project downloads the trending tiktok videos and compiles them into a video.
 
-**Note** follow the installation instructions for the used api [TikTok-API](https://github.com/davidteather/TikTok-Api).
-
 
 **NOTE** This project will most likely be behind my TikTok-API. Adapt that to use FFMpeg if you want a better experience [TikTok-API](https://github.com/davidteather/TikTok-Api). I will still update this just it will most likely be a few updates behind that other repo.
 
@@ -14,13 +12,11 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing and Prerequisites
 
 You need to have ffmpeg installed and in your path variable, tutorial [here](https://www.thewindowsclub.com/how-to-install-ffmpeg-on-windows-10).
-Also, make sure you have in the directory of tiktokbot.py folders called output and downloaded.
 
 You will also have to follow the instructions [here](https://github.com/davidteather/TikTok-Api) for installing the unofficial tiktok-api
 
 Python Requirements
 ```
-pip install requests
 pip install TikTokApi
 ```
 
@@ -40,6 +36,7 @@ python tiktokbot.py
 ## Built With
 
 * [FFmpeg](https://ffmpeg.org/) - The tool used for video editing
+* [TikTok-API](https://github.com/davidteather/TikTok-Api) - My own API for TikTok.
 
 ## Authors
 
