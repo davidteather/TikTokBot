@@ -1,5 +1,7 @@
 # TikTok Video Bot
 
+Consider sponoring me [here](https://github.com/sponsors/davidteather)
+
 This project downloads the trending tiktok videos and compiles them into a video.
 
 
