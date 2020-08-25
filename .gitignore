@@ -5,3 +5,5 @@ bmp.log
 geckodriver.log
 server.log
 tmp/*
+downloaded/*
+output/*

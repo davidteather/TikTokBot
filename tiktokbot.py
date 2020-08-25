@@ -6,6 +6,8 @@ import math
 import os
 from TikTokApi import TikTokApi
 
+
+# Creates new folders
 if not os.path.isdir('output'):
     os.mkdir('output')
 
@@ -13,13 +15,13 @@ if not os.path.isdir('downloaded'):
     os.mkdir('downloaded')
 
 
+# Functions to use later
 def getLength(pathtofile):
     secsval = os.popen('''ffprobe -i ''' + pathtofile +
                        ''' -show_entries format=duration -v quiet -of csv="p=0"''').read()
     secsval.replace("\n", "")
     secs = float(secsval)
     return secs
-
 
 def getSize(pathtofile):
     size = os.popen(
@@ -58,6 +60,10 @@ def clearTMP(delpath):
 clearTMP("downloaded/*")
 clearTMP('output/output.mp4')
 
+
+#
+# Start interface
+#
 print("Pick a video length (1-3)")
 print("1. 2-3 minutes")
 print("2. 5-7 minutes")
