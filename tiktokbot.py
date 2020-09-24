@@ -141,10 +141,10 @@ currentLength = 0
 for x in range(len(results)):
     if currentLength < maxLength:
         try:
+            b = api.get_Video_By_TikTok(results[x])
+        except:
             b = api.get_Video_By_DownloadURL(
                 results[x]['itemInfos']['video']['urls'][0])
-        except:
-            b = api.get_Video_By_TikTok(results[x])
         open('downloaded/' + str(x) +
              ".mp4", "wb").write(b)
 
