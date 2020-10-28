@@ -112,26 +112,27 @@ elif selection == "4":
 # If you're doing a lot of tags or users you might want to decrease count for a quicker runtime
 count = 100
 api = TikTokApi()
+did = str(random.randint(10000, 999999999))
 
 if videoType == 1:
-    results = api.trending(count=count)
+    results = api.trending(count=count, custom_did=did)
 else:
     results = []
     if videoType == 2:
         for x in hashtags:
-            res = api.byHashtag(x, count=count)
+            res = api.byHashtag(x, count=count, custom_did=did)
             for y in res:
                 results.append(y)
     elif videoType == 3:
         for x in users:
-            res = api.byUsername(username=x, count=count)
+            res = api.byUsername(username=x, count=count, custom_did=did)
             for y in res:
                 results.append(y)
     elif videoType == 4:
         for x in sounds:
             x = x.split("ps://www.tiktok.com/music/")[1].split("?")[0]
             x = x.split("-")[len(x.split("-"))-1]
-            res = api.bySound(x, count=count)
+            res = api.bySound(x, count=count, custom_did=did)
             for y in res:
                 results.append(y)
 
@@ -141,10 +142,10 @@ currentLength = 0
 for x in range(len(results)):
     if currentLength < maxLength:
         try:
-            b = api.get_Video_By_TikTok(results[x])
+            b = api.get_Video_By_TikTok(results[x], custom_did=did)
         except:
             b = api.get_Video_By_DownloadURL(
-                results[x]['itemInfos']['video']['urls'][0])
+                results[x]['itemInfos']['video']['urls'][0], custom_did=did)
         open('downloaded/' + str(x) +
              ".mp4", "wb").write(b)
 
