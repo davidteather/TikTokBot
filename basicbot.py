@@ -1,4 +1,5 @@
 import os
+import random
 import glob
 from TikTokApi import TikTokApi
 
@@ -18,12 +19,13 @@ clearTMP('output/output.mp4')
 # Vars
 count = 30
 api = TikTokApi()
+did = str(random.randint(10000, 999999999))
 
-results = api.trending(count=count)
+results = api.trending(count=count, custom_did=did)
 prevloops = 0
 for res in results:
     open('downloaded/' + str(prevloops) +
-            ".mp4", "wb").write(api.get_Video_By_TikTok(res))
+            ".mp4", "wb").write(api.get_Video_By_TikTok(res, custom_did=did))
     open("downloaded/concat.txt", 'a').write("file " +
                                                 str(prevloops) + ".mkv" + "\n")
     os.system("ffmpeg -loglevel panic -i downloaded/" + str(prevloops) +
