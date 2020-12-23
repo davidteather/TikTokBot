@@ -111,8 +111,12 @@ elif selection == "4":
 # The count of the videos to retrieve per specified thing.
 # If you're doing a lot of tags or users you might want to decrease count for a quicker runtime
 count = 100
-api = TikTokApi()
-did = str(random.randint(10000, 999999999))
+verifyFp = "verify_" + ''.join(random.choice(string.letters) for num in range(40))
+
+# I recommend using api = TikTokApi.get_instance(custom_verifyFp=verifyFp, use_test_endpoints=True) instead
+# of the following line, but I can't guarantee support for the use_test_endpoints parameter into the future
+api = TikTokApi.get_instance(custom_verifyFp=verifyFp)
+did = ''.join(random.choice(string.digits) for num in range(19))
 
 if videoType == 1:
     results = api.trending(count=count, custom_did=did)
