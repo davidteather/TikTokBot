@@ -1,0 +1,36 @@
+Videobot de TikTok
+Considere patrocinarme aquí
+
+Este proyecto descarga los videos de tendencias de tiktok y los compila en un video.
+
+NOTA: MUY DESACTUALIZADO si desea enviar un PR para actualizar el código usando las nuevas versiones de TikTokApi
+
+NOTA Lo más probable es que este proyecto esté detrás de mi TikTok-API. Adapta eso para usar FFMpeg si quieres una mejor experiencia TikTok-API . Todavía actualizaré esto, solo que lo más probable es que haya algunas actualizaciones detrás de ese otro repositorio.
+
+Empezando
+Estas instrucciones le proporcionarán una copia del proyecto en funcionamiento en su máquina local.
+
+Instalación y requisitos previos
+Debe tener ffmpeg instalado y en su variable de ruta, tutorial aquí .
+
+También deberá seguir las instrucciones aquí para instalar el tiktok-api no oficial
+
+Requisitos de Python
+
+pip install TikTokApi
+o puedes hacer
+
+pip install -r requirements.txt
+Ejecutando el bot
+Es realmente simple, ve al directorio y ejecuta el siguiente comando
+
+python tiktokbot.py
+construido con
+FFmpeg - La herramienta utilizada para la edición de video
+TikTok-API : mi propia API para TikTok.
+Autores
+David Teather - Trabajo inicial - davidteather
+Lanzamientos 4
+Agregue custom_verifyFp y use_test_endpoints comentario
+Último
+el 23 de diciembre de 2020
